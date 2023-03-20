@@ -91,10 +91,11 @@ class LinkedList:
             node = Node(elem)
             node.next = pointer.next
             pointer.next = node
-    
+
     #remover elemento da lista encadeada
     def remover (self, elem):
         if self.head == None:
+
             raise print("Lista vazia") 
         elif self.head.data == elem:
             self.head = self.head.next
@@ -111,7 +112,7 @@ class LinkedList:
             return True
         raise print("Elemento não estava na lista")
 
-
+#APENAS UM COMENT
 
 
         
