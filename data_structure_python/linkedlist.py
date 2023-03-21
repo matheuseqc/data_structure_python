@@ -1,9 +1,4 @@
-#sequencial = []
-#sequencial.append(7)
-#tópicos
-#busca
-#inserção
-#remoção
+
 from node import Node
 
 
@@ -112,7 +107,7 @@ class LinkedList:
             return True
         raise print("Elemento não estava na lista")
 
-#APENAS UM COMENT
+
 
 
         

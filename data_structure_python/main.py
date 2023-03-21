@@ -2,6 +2,7 @@ from node import Node
 from linkedlist import LinkedList
 lista = LinkedList()
 a = 0
+
 while (a != 5):
     print("\n")
     a = int(input("ESCOLHA UM NÚMERO PARA MANIPULAR A LISTA:\n 1 - ADICIONAR NO FINAl \n 2 - EXCLUIR ELEMENTO \n 3 - ADICIONAR EM QUALQUER DA LISTA \n 4 - VISUALIZAÇÃO DA LISTA \n 5 - PEGAR O BECO:"))
@@ -59,7 +60,7 @@ while (a != 5):
                     print("POSIÇÃO MAIOR QUE O DA LISTA")
                 if (elemento != 2 and elemento !=1):
                     print("VALOR FORA DA LISTA DIGITE UM OU DOIS.")  
-                if (ped == 2):
+                if (sn == 2):
                     break 
         else:
             print("POSIÇÃO MAIOR QUE O DA LISTA")   
