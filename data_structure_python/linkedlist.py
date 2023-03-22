@@ -1,12 +1,9 @@
 
 from node import Node
-
-
 class LinkedList:
     def __init__(self):
         self.head = None
         self.size = 0
-    
     #adiciona Elemento no final da lista    
     def append(self, elem):
         if self.head:
@@ -90,7 +87,6 @@ class LinkedList:
     #remover elemento da lista encadeada
     def remover (self, elem):
         if self.head == None:
-
             raise print("Lista vazia") 
         elif self.head.data == elem:
             self.head = self.head.next
