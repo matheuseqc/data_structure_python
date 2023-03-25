@@ -71,6 +71,14 @@ class LinkedList:
             node = Node(elem)
             node.next = self.head
             self.head = node
+        if index == 0 and self.size:
+            pointer = self.head
+            for i in range(index-1):
+                if pointer:
+                    pointer = pointer.next
+                else: 
+                    raise IndexError("Posição maior que o da lista")
+            self.size +=1
         else:
             pointer = self.head
             for i in range(index-1):
