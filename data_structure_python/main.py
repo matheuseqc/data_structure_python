@@ -24,20 +24,18 @@ while (a != 5):
         if (lista.size != 0):
             c = int(input("QUAL ELEMENTO DESEJA EXCLUIR?"))    
             lista.remover(c)
-            print(f'ELEMENTO {c} EXCLUÍDO DA LISTA ')
             while True:
                 ex = int(input("DESEJA CONTINUAR A EXCLUIR? \n 1- SIM \n 2- NÃO:"))
                 if (ex == 1):
                     c = int(input("QUAL ELEMENTO EXCLUIR:"))
                     lista.remover(c)
-                    print(f'ELEMENTO {c} EXCLUÍDO DA LISTA')
                 if (ex != 2 and ex !=1):
                     print("VALOR FORA DA LISTA DIGITE UM OU DOIS.")  
                 if (ex == 2):
                     break
         else:
             print("A LISTA ENCONTRA-SE VAZIA NÃO HÁ COMO REMOVER") 
-                 
+                         
     if (a == 3):
         position = int(input("POSIÇÃO QUE DESEJA ADICIONAR ESSE ELEMENTO:"))
         elemento = int(input("QUAL ELEMENTO COLOCAR NESSA POSIÇÃO:"))

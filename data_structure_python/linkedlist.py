@@ -70,7 +70,7 @@ class LinkedList:
         if index == 0:
             node = Node(elem)
             node.next = self.head
-            self.head = node
+            self.head = node     
         if index == 0 and self.size:
             pointer = self.head
             for i in range(index-1):
@@ -86,18 +86,20 @@ class LinkedList:
                     pointer = pointer.next
                 else: 
                     raise IndexError("Posição maior que o da lista")
-            self.size +=1
-                
+            self.size +=1  
             node = Node(elem)
             node.next = pointer.next
             pointer.next = node
 
     #remover elemento da lista encadeada
-    def remover (self, elem):
+    def remover(self, elem):
         if self.head == None:
-            raise print("Lista vazia") 
+            raise ValueError("{} is not in list".format(elem))
         elif self.head.data == elem:
             self.head = self.head.next
+            self.size = self.size - 1
+            print("ELEMENTO EXCLUÍDO")
+            return True
         else:
             ancestor = self.head
             pointer = self.head.next
@@ -105,11 +107,13 @@ class LinkedList:
                 if pointer.data == elem:
                     ancestor.next = pointer.next
                     pointer.next = None
-                ancestor = ancestor.next
-                pointer = pointer.next   
-            self.size -=1
-            return True
-        raise print("Elemento não estava na lista")
+                    self.size = self.size - 1
+                    print("ELEMENTO EXCLUÍDO")
+                    return True
+                ancestor = pointer
+                pointer = pointer.next
+        print("ELEMENTO NÃO ECONTRA-SE NA LISTA")
+
 
 
 
