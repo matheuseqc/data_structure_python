@@ -40,14 +40,14 @@ while (a != 5):
         position = int(input("POSIÇÃO QUE DESEJA ADICIONAR ESSE ELEMENTO:"))
         elemento = int(input("QUAL ELEMENTO COLOCAR NESSA POSIÇÃO:"))
         if (position <= lista.size):
-            lista.insert(position, elemento)
+            lista.insert(position-1, elemento)
             print(f'ELEMENTO {elemento} ADICIONADO NA POSIÇÃO {position}')
             while True:
                 sn = int(input("DESEJA CONTINUAR A ADICIONAR ELEMENTO? \n 1- SIM \n 2- NÃO:"))
                 if (sn == 1):
                     pos = int(input("POSIÇÃO QUE DESEJA ADCIONAR ESSE ELEMENTO:"))
                     elemen = int(input("QUAL ELEMENTO COLOCAR NESSA POSIÇÃO:"))
-                    if (pos <= lista.size):
+                    if (pos-1 <= lista.size):
                         lista.insert(pos, elemen)
                         print(f'ELEMENTO {elemen} ADICIONADO NA POSIÇÃO {pos}')
                     else:
