@@ -47,11 +47,11 @@ class LinkedList:
             if pointer:
                 pointer = pointer.next
             else:
-                raise IndexError("list index out of range")
+                print("Índice fora da lista")
         if pointer:
             pointer.data = elem
         else:
-            raise IndexError("list index out of range")
+            print("Índice fora da lista")
     
     def index(self, elem):
         #retorna o indice do elemento na lista

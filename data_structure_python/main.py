@@ -2,9 +2,9 @@ from node import Node
 from linkedlist import LinkedList
 lista = LinkedList()
 a = 0
-while (a != 5):
+while (a != 6):
     print("\n")
-    a = int(input("ESCOLHA UM NÚMERO PARA MANIPULAR A LISTA:\n 1 - ADICIONAR NO FINAl \n 2 - EXCLUIR ELEMENTO \n 3 - ADICIONAR EM QUALQUER DA LISTA \n 4 - VISUALIZAÇÃO DA LISTA \n 5 - SAIR:"))
+    a = int(input("ESCOLHA UM NÚMERO PARA MANIPULAR A LISTA:\n 1 - ADICIONAR NO FINAl \n 2 - EXCLUIR ELEMENTO \n 3 - ADICIONAR EM QUALQUER DA LISTA \n 4 - ATUALIZAR VALOR DA LISTA \n 5 -  VISUALIZAÇÃO DA LISTA  \n 6 - SAIR:"))
     if (a == 1):
         b = int(input("QUAL ELEMENTO ADICIONAR?"))
         lista.append(b)
@@ -47,8 +47,8 @@ while (a != 5):
                 if (sn == 1):
                     pos = int(input("POSIÇÃO QUE DESEJA ADCIONAR ESSE ELEMENTO:"))
                     elemen = int(input("QUAL ELEMENTO COLOCAR NESSA POSIÇÃO:"))
-                    if (pos-1 <= lista.size):
-                        lista.insert(pos, elemen)
+                    if (pos <= lista.size):
+                        lista.insert(pos-1, elemen)
                         print(f'ELEMENTO {elemen} ADICIONADO NA POSIÇÃO {pos}')
                     else:
                         print("POSIÇÃO MAIOR QUE O DA LISTA")
@@ -57,8 +57,32 @@ while (a != 5):
                 if (sn == 2):
                     break 
         else:
-            print("POSIÇÃO MAIOR QUE O DA LISTA")   
+            print("POSIÇÃO MAIOR QUE O DA LISTA")
+            
     if (a == 4):
+        indice = int(input("QUAL A POSIÇÃO QUE DESEJA ATUALIZAR O VALOR:"))
+        addelement = int(input("QUAL O VALOR ATUALIZADO:"))
+        if (indice <= lista.size):
+            lista.__setitem__(indice-1, addelement)
+            print(f'ELEMENTO {addelement} ATUALIZADO NA POSIÇÃO {indice }')
+            while True:
+                sup = int(input("DESEJA CONTINUAR A ATUALIZAR ELEMENTO? \n 1- SIM \n 2- NÃO:"))
+                if (sup == 1):
+                    indice1 = int(input("QUAL A POSIÇÃO QUE DESEJA ATUALIZAR O VALOR:"))
+                    addelement1 = int(input("QUAL O VALOR ATUALIZADO::"))
+                    if (indice1<= lista.size):
+                        lista.__setitem__(indice1, addelement1)
+                        print(f'ELEMENTO {addelement1} ATUALIZADO NA POSIÇÃO {indice1}')
+                    else:
+                        print("ÍNDICE FORA DA LISTA")
+                if (sup != 2 and sup !=1):
+                    print("VALOR FORA DA LISTA DIGITE UM OU DOIS.")  
+                if (sup == 2):
+                    break 
+        else:
+            print("ÍNDICE FORA DA LISTA")  
+             
+    if (a == 5):
         if (lista.size != 0):
             print("VALORES DA LISTA:")
             for i in range(len(lista)):
