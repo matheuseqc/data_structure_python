@@ -1,23 +1,30 @@
 
 from node import Node
-class LinkedList:
+class LinkedList:   
     def __init__(self):
         self.head = None
         self.size = 0
-    #adiciona Elemento no final da lista    
-    def append(self, elem):
-        if self.head:
-            #adiciona quando já tem elemento
-            pointer = self.head
-            while(pointer.next):
-                pointer = pointer.next
-                
-            #último valor vazio
-            pointer.next = Node(elem)
+           
+    def append(self, elem, priority):
+        novo_node = Node(elem, priority)
+        if self.head is None:
+            self.head = novo_node
+            print(f'TAREFA {elem} ADICIONADA NA LISTA')
+        elif self.head.priority < priority:
+            novo_node.next = self.head
+            self.head = novo_node
+            print(f'TAREFA{elem} ADICIONADA DA LISTA ')
         else:
-            # primero nó adicionado 
-            self.head = Node(elem)
-        self.size +=1
+            current = self.head
+            while current.next is not None and current.next.priority > priority:
+                current = current.next
+            if current.next is not None and current.next.priority == priority:
+                print(f"JÁ EXISTE UM ELEMENTO COM A PRIORIDADE {priority}")
+            else:
+                novo_node.next = current.next
+                current.next = novo_node
+                print(f"TAREFA {elem} ADICIONADA NA LISTA")
+        self.size += 1
     
     #len com lista encadeada contar elemento e atualizar elemento   
     def __len__(self):
@@ -32,10 +39,10 @@ class LinkedList:
              if pointer:
                  pointer = pointer.next
              else:
-                 raise IndexError("list index out of range")
+                 print("list index out of range")
         if pointer:
             return pointer.data
-        raise IndexError("list index out of range")
+        print("list index out of range")
     
     def set(self, index, elem):
         pass     
@@ -62,43 +69,16 @@ class LinkedList:
                return i
             pointer = pointer.next
             i = i+1
-        raise ValueError(f'Elemento {elem} não está na lista')
+        print(f'Elemento {elem} não está na lista')
     
-    
-    #inserir em uma posição qualquer da lista
-    def insert(self, index, elem):
-        if index == 0:
-            node = Node(elem)
-            node.next = self.head
-            self.head = node     
-        if index == 0 and self.size:
-            pointer = self.head
-            for i in range(index-1):
-                if pointer:
-                    pointer = pointer.next
-                else: 
-                    raise IndexError("Posição maior que o da lista")
-            self.size +=1
-        else:
-            pointer = self.head
-            for i in range(index-1):
-                if pointer:
-                    pointer = pointer.next
-                else: 
-                    raise IndexError("Posição maior que o da lista")
-            self.size +=1  
-            node = Node(elem)
-            node.next = pointer.next
-            pointer.next = node
-
     #remover elemento da lista encadeada
     def remover(self, elem):
         if self.head == None:
-            raise ValueError("{} is not in list".format(elem))
+            print("{} is not in list".format(elem))
         elif self.head.data == elem:
             self.head = self.head.next
             self.size = self.size - 1
-            print("ELEMENTO EXCLUÍDO")
+            print(f"ELEMENTO {elem} EXCLUÍDO")
             return True
         else:
             ancestor = self.head
@@ -108,7 +88,7 @@ class LinkedList:
                     ancestor.next = pointer.next
                     pointer.next = None
                     self.size = self.size - 1
-                    print("ELEMENTO EXCLUÍDO")
+                    print(f"ELEMENTO {elem}EXCLUÍDO")
                     return True
                 ancestor = pointer
                 pointer = pointer.next
