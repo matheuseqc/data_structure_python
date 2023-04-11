@@ -54,11 +54,22 @@ class LinkedList:
             if pointer:
                 pointer = pointer.next
             else:
-                print("Índice fora da lista")
+                print("ÍNDICE FORA DA LISTA")
         if pointer:
             pointer.data = elem
         else:
-            print("Índice fora da lista")
+            print("ÍNDICE FORA DA LISTA")
+    
+    
+    def get_priority(self, elem):
+        pointer = self.head
+        while pointer:
+            if pointer.data == elem:
+                return pointer.priority
+            pointer = pointer.next
+        print(f"ELEMENTO {elem} NÃO ENCONTRADO NA LISTA")
+        return None
+    
     
     def index(self, elem):
         #retorna o indice do elemento na lista
@@ -74,7 +85,7 @@ class LinkedList:
     #remover elemento da lista encadeada
     def remover(self, elem):
         if self.head == None:
-            print("{} is not in list".format(elem))
+            print(" TAREFA {} NÃO ESTÁ NA LISTA ".format(elem))
         elif self.head.data == elem:
             self.head = self.head.next
             self.size = self.size - 1
