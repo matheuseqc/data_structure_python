@@ -66,6 +66,6 @@ while (a != 5):
         if (lista.size != 0):
             print("LISTA DE AFAZERES DE ACORDO COM A PRIORIDADE:")
             for i in range(len(lista)):
-                print(lista.get_priority(lista[0+i]) , "-" ,lista[0+i])
+                print(lista.get_priority(lista[i]) , "-" ,lista[i])
         else:
             print("A LISTA ESTÁ VAZIA PARA VISUÁ-LA É NECESSÁRIO ADICIONAR VALOR NA LISTA")
